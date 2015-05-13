@@ -32,7 +32,7 @@
             
         
             <div class="priorize_loading">Carregando</div>
-            <div class="priorize_sucesso">Obrigado por sua participação</div>
+            <div class="priorize_sucesso">Agradecemos sua participação</div>
             <div class="priorize_erro">Erro</div>
         
         </div>
