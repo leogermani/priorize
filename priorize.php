@@ -144,6 +144,7 @@ function priorize_init() {
                 'post_type' => 'opcao',
                 'posts_per_page' => 2,
                 'orderby' => 'rand',
+                'post_status' => 'publish',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'perguntas',
@@ -162,6 +163,7 @@ function priorize_init() {
                 'orderby' => 'meta_value',
                 'order' => 'DESC',
                 'meta_key' => 'priorize_votes',
+                'post_status' => 'publish',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'perguntas',
