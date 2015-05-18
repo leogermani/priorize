@@ -1,16 +1,20 @@
 
 
-    
+<div class="pergunta_content">
+
     <h2><?php echo $pergunta; ?></h2>
     
     <div class="pergunta_container">
         
-        <ul>
+        <ul class="pergunta-opcoes">
+
+            <!-- <span class="divider">OU</span> -->
+        
             <?php while ($opcoes->have_posts()) : $opcoes->the_post(); ?>
                 
-                <li>
+                <li class="pergunta-opcao">
                     <span>Acho mais importante</span>
-                    <p><?php the_title(); ?></p>
+                    <p class="opcao-titulo"><?php the_title(); ?></p>
                     <a id="vote-for-<?php the_ID(); ?>" class="priorize_vote">Vote</a>
                 </li>
 
@@ -29,8 +33,6 @@
         
         <div class="pergunta_feedback">
         
-            
-        
             <div class="priorize_loading">Carregando</div>
             <div class="priorize_sucesso">Agradecemos sua participação</div>
             <div class="priorize_erro">Erro</div>
@@ -40,8 +42,6 @@
     </div>
     
     <div class="results_container" style="display:none" >
-    
-        <a class="priorize_voltar">Voltar</a>
     
         <table>
         
@@ -55,17 +55,18 @@
             <?php endwhile; ?>
         
         </table>
+
+         <a class="priorize_voltar">Voltar</a>
     
     </div>
     
     <div class="nova_opcao_container" style="display:none" >
-    
-        <a class="priorize_voltar">Voltar</a>
-    
+
         <input type="text" class="priorize_nova_opcao_text" />
-        
+
         <a class="priorize_enviar_nova_opcao">Enviar</a>
     
+        <a class="priorize_voltar">Voltar</a>
     </div>
     
-
+</div>

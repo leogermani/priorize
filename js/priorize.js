@@ -32,6 +32,7 @@ jQuery(document).ready(function($) {
                 
                 $('#pergunta_' + pergunta_id).html(response);
                 
+                priorize_show_success(pergunta_id);
                 priorize_hideLoading(pergunta_id);
                 
             });
@@ -54,7 +55,8 @@ jQuery(document).ready(function($) {
             function(response) {
                 
                 $('#pergunta_' + pergunta_id).html(response);
-                
+
+                priorize_show_success(pergunta_id);
                 priorize_hideLoading(pergunta_id);
                 
             });
@@ -86,5 +88,10 @@ jQuery(document).ready(function($) {
     function priorize_hideLoading(pergunta_id) {
         $('#pergunta_' + pergunta_id).find('.priorize_loading').hide();
     }
+
+    function priorize_show_success( pergunta_id ) {
+        $('#pergunta_' + pergunta_id).find('.priorize_sucesso').show().delay(3000).fadeOut();
+    }
+
     
 });
