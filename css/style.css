@@ -5,7 +5,6 @@
 }
 
 .priorize_pergunta li.pergunta-opcao span:after,
-.priorize_pergunta li.pergunta-opcao,
 .priorize_pergunta li.pergunta-opcao span,
 .priorize_pergunta li.pergunta-opcao p {
 	background-color: #f8941f;	
@@ -21,6 +20,15 @@
 	color: #fff;
 	cursor: pointer;
 }
+
+.priorize_pergunta .pergunta_controls a:hover,
+.priorize_pergunta li.pergunta-opcao a.priorize_vote:hover {
+	color: #000;
+	cursor: pointer;
+	background-color: #feec1c;
+}
+
+/* Priorize */
 
 .priorize_pergunta {
 	padding: 25px 5%; 
@@ -39,8 +47,14 @@
 	font-weight: bold;
 	text-align: center;
 	padding: 0px 30px;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
+
+.priorize_pergunta .message_active .pergunta-opcoes {
+	opacity: 0;
+}
+
+/* Feedback */
 
 .priorize_pergunta .pergunta_feedback .priorize_loading {
 	display: none;
@@ -59,11 +73,15 @@
 .priorize_pergunta .pergunta_feedback .priorize_sucesso {
 	display: none;
 	position: absolute;
-	top: -78px;
+	top: 50px;
 	width: 100%;
 	background: green;
 	text-align: center;
 	padding: 20px 0px;	
+}
+
+.priorize_pergunta .pergunta_feedback {
+	background-color: #242652;
 }
 
 .priorize_pergunta .pergunta_feedback .priorize_erro {
@@ -74,6 +92,8 @@
 	position: relative;
 	height: auto;
 }
+
+/* Pergunta opções */
 
 .priorize_pergunta ul.pergunta-opcoes {
 	margin-top: 10px;
@@ -143,28 +163,24 @@
 .priorize_pergunta li.pergunta-opcao p {
 	font-size: 15px;
 	padding: 20px;
-	/*padding: 15px 5%;*/
 	line-height: 1.4; 
 	display: table-cell;
 	vertical-align: middle;
-	height: 120px;
+	height: 100px;
+	text-align: center;
 }
 
 .priorize_pergunta li.pergunta-opcao a.priorize_vote {
 	text-align: center;
 	width: 100%;
-	border-left: 1px solid #242652;
-	border-right: 1px solid #242652;
 	padding: 15px 0px;
 	display: block;
 	text-transform: uppercase;
+	border-radius: 5px;
+	margin-top: 3px;
 }
 
-.priorize_pergunta li.pergunta-opcao a.priorize_vote:hover {
-	color: #fff;
-	cursor: pointer;
-	background-color: #FC873E;
-}
+/* Pergunta controls */
 
 .priorize_pergunta .pergunta_controls {
 	width: 100%;
@@ -178,21 +194,16 @@
 .priorize_pergunta .pergunta_controls a {
 	font-weight: 100;
 	padding: 5px 3%;
-	margin-right: 2%;
 	line-height: 2.2;
+	border-radius: 5px;
+	font-size: 15px;
 }
 
 .priorize_pergunta .pergunta_controls a:last-child {
 	margin-right: 0px;
 }
 
-.priorize_pergunta .pergunta_controls a:hover {
-	color: #fff;
-	color: #fff;
-	cursor: pointer;
-	background-color: #FC873E;
-
-}
+/* Button voltar */
 
 .priorize_pergunta .priorize_voltar,
 .priorize_pergunta .priorize_enviar_nova_opcao {
@@ -205,20 +216,24 @@
 	background-color: #818181
 }
 
+/* Nova opcao */
+
 .priorize_pergunta .nova_opcao_container input[type=text] {
 	width: 100%;
 	border: 2px solid white; 
 	font-size: 18px;
     padding: 15px;
-
     margin: 10px 0 10px 0;
 }
+
+/* Respostas */
 
 .priorize_pergunta table {
 	width: 100%;
 	margin-bottom: 20px;
 	text-align: left;
 }
+
 .priorize_pergunta table th, .priorize_pergunta table td {
 	padding: 8px;
 	line-height: 20px;
@@ -232,3 +247,36 @@
 	background-color: #36385C;
 }
 
+
+@media (min-width: 1300px) { 
+
+	.priorize_pergunta .pergunta_controls a {
+		margin-right: 6.1%;
+  		font-size: 17px;
+	}
+}
+
+@media (max-width: 1299px) {
+	.priorize_pergunta .pergunta_controls a {
+		margin-right: 2%;
+		padding: 5px 10px;
+	}
+
+}
+
+@media (max-width: 930px) { 
+	.priorize_pergunta li.pergunta-opcao p {
+		height: 120px;
+	}
+
+	.priorize_pergunta .pergunta_controls {
+		text-align: center;
+	}
+	.priorize_pergunta .pergunta_controls a:last-child,
+	.priorize_pergunta .pergunta_controls a {
+		margin: 0px 10%;
+		margin-bottom: 8px;	
+		display: block;
+		text-align: center;
+	}
+}

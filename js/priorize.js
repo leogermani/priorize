@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
                 
                 $('#pergunta_' + pergunta_id).html(response);
                 
-                priorize_show_success(pergunta_id);
                 priorize_hideLoading(pergunta_id);
+                priorize_show_message(pergunta_id, ".priorize_sucesso");
                 
             });
     });
@@ -56,8 +56,8 @@ jQuery(document).ready(function($) {
                 
                 $('#pergunta_' + pergunta_id).html(response);
 
-                priorize_show_success(pergunta_id);
                 priorize_hideLoading(pergunta_id);
+                priorize_show_message(pergunta_id, ".priorize_sucesso");
                 
             });
     });
@@ -89,9 +89,15 @@ jQuery(document).ready(function($) {
         $('#pergunta_' + pergunta_id).find('.priorize_loading').hide();
     }
 
-    function priorize_show_success( pergunta_id ) {
-        $('#pergunta_' + pergunta_id).find('.priorize_sucesso').show().delay(3000).fadeOut();
-    }
+    function priorize_show_message( pergunta_id, class_message ) {
+        $('#pergunta_' + pergunta_id).find('.pergunta_container').addClass("message_active");
 
+        $('#pergunta_' + pergunta_id).find( class_message )
+        .show()
+        .delay(3000)
+        .fadeOut( "slow", function(){
+            $('#pergunta_' + pergunta_id).find('.pergunta_container').removeClass("message_active");
+        });
+    }
     
 });
