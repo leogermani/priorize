@@ -1,4 +1,5 @@
 
+<?php do_action( 'priorize_template_before', $pergunta_id, $pergunta );  ?>
 
 <div class="pergunta_content">
 
@@ -70,3 +71,5 @@
     </div>
     
 </div>
+
+ <?php do_action( 'priorize_template_after', $pergunta_id, $pergunta );  ?>

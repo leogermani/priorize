@@ -50,12 +50,17 @@
 	margin-bottom: 25px;
 }
 
+.priorize_pergunta .pergunta-opcoes {
+	clear: both;
+	min-height: 180px;
+}
+
 .priorize_pergunta .message_active .pergunta-opcoes {
 	opacity: 0;
+
 }
 
 /* Feedback */
-
 .priorize_pergunta .pergunta_feedback .priorize_loading {
 	display: none;
 	width: 100%;
@@ -265,8 +270,12 @@
 }
 
 @media (max-width: 930px) { 
+	.priorize_pergunta {
+		min-height: 580px;
+	}
+
 	.priorize_pergunta li.pergunta-opcao p {
-		height: 120px;
+		height: 150px;
 	}
 
 	.priorize_pergunta .pergunta_controls {
