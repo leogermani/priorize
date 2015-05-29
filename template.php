@@ -69,7 +69,7 @@
     
         <a class="priorize_voltar">Voltar</a>
 
-         <p class="priorize_regras"> Regras de participação: </br>
+         <p class="priorize_regras"> <strong>Regras de participação: </strong> </br></br>
             Sua sugestão deve conter até 140 caracteres e ser pertinente à pergunta para entrar em votação.
         </p>
     </div>

@@ -81,7 +81,7 @@ function priorize_init() {
                     //'page-attributes',
                     'author'
                 ),
-                //'taxonomies' => array('taxonomia')
+                // 'taxonomies' => array('taxonomia')
                 )
             );
         }
@@ -107,6 +107,7 @@ function priorize_init() {
                     'show_ui' => true,
                     'query_var' => true,
                     'rewrite' => true,
+                    'show_admin_column' => true,
                 )
             );
             
