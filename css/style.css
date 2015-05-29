@@ -69,7 +69,7 @@
 	top: -10px;
 	text-align: center;
 	padding-top: 10%;
-	background-image: url( "../img/loader.gif");
+	background-image: url( "../img/loader2.gif");
 	background-repeat:  no-repeat;
 	background-position: center center;
 }
@@ -173,6 +173,7 @@
 	vertical-align: middle;
 	height: 100px;
 	text-align: center;
+	width: 270px;
 }
 
 .priorize_pergunta li.pergunta-opcao a.priorize_vote {
@@ -250,6 +251,10 @@
 .priorize_pergunta table tbody>tr:nth-child(odd)>td,
 .priorize_pergunta table tbody>tr:nth-child(odd)>th {
 	background-color: #36385C;
+}
+
+.priorize_regras {
+	margin-top: 50px;
 }
 
 

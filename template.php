@@ -63,11 +63,15 @@
     
     <div class="nova_opcao_container" style="display:none" >
 
-        <input type="text" class="priorize_nova_opcao_text" />
+        <input type="text" class="priorize_nova_opcao_text" placeholder="Qual a sua opinião?" />
 
         <a class="priorize_enviar_nova_opcao">Enviar</a>
     
         <a class="priorize_voltar">Voltar</a>
+
+         <p class="priorize_regras"> Regras de participação: </br>
+            Sua sugestão deve conter até 140 caracteres e ser pertinente à pergunta para entrar em votação.
+        </p>
     </div>
     
 </div>

@@ -57,7 +57,7 @@ jQuery(document).ready(function($) {
                 $('#pergunta_' + pergunta_id).html(response);
 
                 priorize_hideLoading(pergunta_id);
-                priorize_show_message(pergunta_id, ".priorize_sucesso");
+                priorize_show_message(pergunta_id, ".priorize_sucesso", "Agradecemos sua participação. Em breve sua contribuição entrará na votação.");
                 
             });
     });
@@ -89,15 +89,57 @@ jQuery(document).ready(function($) {
         $('#pergunta_' + pergunta_id).find('.priorize_loading').hide();
     }
 
-    function priorize_show_message( pergunta_id, class_message ) {
+    function priorize_show_message( pergunta_id, class_message, message ) {
+
         $('#pergunta_' + pergunta_id).find('.pergunta_container').addClass("message_active");
 
-        $('#pergunta_' + pergunta_id).find( class_message )
+        $('#pergunta_' + pergunta_id).find( class_message ).html( message )
         .show()
         .delay(3000)
         .fadeOut( "slow", function(){
             $('#pergunta_' + pergunta_id).find('.pergunta_container').removeClass("message_active");
         });
+
+
     }
+
+    function mb_strlen( str )
+    {
+        var len = 0;
+
+        for( var i = 0; i < str.length; i++ ) {
+            len += str.charCodeAt( i ) < 0 || str.charCodeAt( i ) > 255 ? 2 : 1;
+        }
+
+        return len;
+    }
+
+    // limita a quantidade de caracteres nos comentários
+    jQuery( '.priorize_nova_opcao_text' ).each( function() {
+        var limit       = 140;
+        var text        = jQuery( this ).val();
+        var text_length = mb_strlen( text );
+
+        jQuery( this ).after( '<div class="limit-chars-counter">( ' + ( limit - text_length ) + ' )</div>' );
+
+        jQuery( this ).keyup( function() {
+            var text        = jQuery( this ).val();
+            var text_length = mb_strlen( text );
+
+            if( text_length > limit )
+            {
+                jQuery( this ).siblings( '.limit-chars-counter' ).html( '(<strong style="color:#AE2020;">' + limit + '</strong>)' );
+                jQuery( this ).val( text.substr( 0, limit ) );
+
+                return false;
+            }
+            else
+            {
+                jQuery( this ).siblings( '.limit-chars-counter' ).html( '( ' + ( limit - text_length ) + ' )' );
+
+                return true;
+            }
+        } );
+    } );
     
 });
