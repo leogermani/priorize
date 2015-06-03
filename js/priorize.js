@@ -143,7 +143,7 @@ jQuery(document).ready(function($) {
         } );
     } );
 
-    $('.count').addClass('counter-analog3').counter({
+    $('.cronometro .count').addClass('counter-analog3').counter({
         initial: '0:00.0',
         direction: 'up',
         interval: '100',
