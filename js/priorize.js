@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
             },
             function(response) {
                 
+                console.log(response);
                 $('#pergunta_' + pergunta_id).html(response);
                 
                 priorize_hideLoading(pergunta_id);
@@ -75,7 +76,7 @@ jQuery(document).ready(function($) {
         $('#pergunta_' + pergunta_id).find('.results_container').show();
     });
     
-    $('.priorize_opiniao').live('click', function() {
+    $('.priorize_opiniao:not([href])').live('click', function() {
         var pergunta_id = $(this).parents('.priorize_pergunta').attr('id').replace('pergunta_', '');
         $('#pergunta_' + pergunta_id).find('.pergunta_container').hide();
         $('#pergunta_' + pergunta_id).find('.nova_opcao_container').show();
@@ -115,31 +116,40 @@ jQuery(document).ready(function($) {
     }
 
     // limita a quantidade de caracteres nos comentários
-    jQuery( '.priorize_nova_opcao_text' ).each( function() {
+    $( '.priorize_nova_opcao_text' ).each( function() {
         var limit       = 140;
-        var text        = jQuery( this ).val();
+        var text        = $( this ).val();
         var text_length = mb_strlen( text );
 
-        jQuery( this ).after( '<div class="limit-chars-counter">( ' + ( limit - text_length ) + ' )</div>' );
+        $( this ).after( '<div class="limit-chars-counter">( ' + ( limit - text_length ) + ' )</div>' );
 
-        jQuery( this ).keyup( function() {
-            var text        = jQuery( this ).val();
+        $( this ).keyup( function() {
+            var text        = $( this ).val();
             var text_length = mb_strlen( text );
 
             if( text_length > limit )
             {
-                jQuery( this ).siblings( '.limit-chars-counter' ).html( '(<strong style="color:#AE2020;">' + limit + '</strong>)' );
-                jQuery( this ).val( text.substr( 0, limit ) );
+                $( this ).siblings( '.limit-chars-counter' ).html( '(<strong style="color:#AE2020;">' + limit + '</strong>)' );
+                $( this ).val( text.substr( 0, limit ) );
 
                 return false;
             }
             else
             {
-                jQuery( this ).siblings( '.limit-chars-counter' ).html( '( ' + ( limit - text_length ) + ' )' );
+                $( this ).siblings( '.limit-chars-counter' ).html( '( ' + ( limit - text_length ) + ' )' );
 
                 return true;
             }
         } );
     } );
+
+    $('.count').addClass('counter-analog3').counter({
+        initial: '0:00.0',
+        direction: 'up',
+        interval: '100',
+        format: '99'
+    }); 
+
+         
     
 });
