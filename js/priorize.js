@@ -43,24 +43,24 @@ jQuery(document).ready(function($) {
         var pergunta_id = $(this).parents('.priorize_pergunta').attr('id').replace('pergunta_', '');
         var nova_opcao = $('#pergunta_' + pergunta_id).find('.priorize_nova_opcao_text').val();
         if (nova_opcao == '') {
-            alert('Instira um texto para sua sugestão');
-        }
-        priorize_loading(pergunta_id);
-        $.post(
-            pr.ajaxurl, 
-            {
-                action: 'priorize_nova_opcao',
-                pergunta_id: pergunta_id,
-                nova_opcao: nova_opcao
-            },
-            function(response) {
-                
-                $('#pergunta_' + pergunta_id).html(response);
+            alert('Insira um texto para sua sugestão');
+        } else {
+            priorize_loading(pergunta_id);
+            $.post(
+                pr.ajaxurl, 
+                {
+                    action: 'priorize_nova_opcao',
+                    pergunta_id: pergunta_id,
+                    nova_opcao: nova_opcao
+                },
+                function(response) {
+                    $('#pergunta_' + pergunta_id).html(response);
 
-                priorize_hideLoading(pergunta_id);
-                priorize_show_message(pergunta_id, ".priorize_sucesso", "Agradecemos sua participação. Em breve sua contribuição entrará na votação.");
-                
+                    priorize_hideLoading(pergunta_id);
+                    priorize_show_message(pergunta_id, ".priorize_sucesso", "Agradecemos sua participação. Em breve sua contribuição entrará na votação.");
+                    
             });
+        }
     });
     
     $('.priorize_voltar').live('click', function() {

@@ -36,13 +36,13 @@
 
 /* Priorize */
 .priorize_container {
-	padding: 25px 5%; 
+	padding: 25px 5%;
 	color: #fff;
 	position: relative;
 	margin-bottom: 50px;
-	padding-bottom: 60px;
+	padding-bottom: 74px;
 	margin-top: 40px;
-	min-height: 430px;
+	min-height: 460px;
 }
 
 .priorize_container a {

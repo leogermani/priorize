@@ -145,7 +145,7 @@ function priorize_init() {
             $opcoes = $this->get_random_pair($pergunta_id);
             $TodasOpcoes = $this->get_results($pergunta_id);
             
-            $opiniao_link = current_user_can('edit_posts') ? '' : 'href="' . wp_login_url( $_SERVER['REQUEST_URI'] ) . '"';
+            $opiniao_link = current_user_can('read') ? '' : 'href="' . wp_login_url( $_SERVER['REQUEST_URI'] ) . '"';
             
             //var_dump($opcoes);
             
@@ -224,16 +224,24 @@ function priorize_init() {
         
         function ajax_add_option() {
             $cur_user = wp_get_current_user();
-            
-            if (current_user_can('edit_posts') && isset($_POST['nova_opcao']) && $_POST['nova_opcao'] != '') {
+
+            if (current_user_can('read') && isset($_POST['nova_opcao']) && $_POST['nova_opcao'] != '') {
                 $newPost = array(
                     'post_type' => 'opcao',
                     'post_title' => $_POST['nova_opcao'],
                     'post_author' => $cur_user->ID,
-                    'post_status' => 'draft',
-                    'tax_input' => array('perguntas' => array($_POST['pergunta_id']))
+                    'post_status' => 'draft'
                 );
-                wp_insert_post($newPost);
+                $new_post_id = wp_insert_post($newPost);
+
+                $tax_ids = array( $_POST['pergunta_id'] );
+                $tax_ids = array_map( 'intval', $tax_ids );
+                $tax_ids = array_unique( $tax_ids );
+
+                if( $new_post_id != 0 ) {
+                    wp_set_object_terms( $new_post_id, $tax_ids, 'perguntas');
+                }
+
             }
             
             $this->the_content($_POST['pergunta_id']);
